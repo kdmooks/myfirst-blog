@@ -14,7 +14,11 @@
   	    <button><li><a href ="{% url 'signUpPage' %}">SIGNUP</a></li></button>
   	    <button><li><a href ="{% url 'loginPage' %}">LOGIN</a></li></button>
   	    </ul>
-  	
+  		{% if user.is_authenticated %}
+  		<h1> Hello {{ user.username}} !</h1>
+  		{% else %}
+  		<h1>Hello Doctor</h1>
+  		{% endif %}
   	    
   	 </body> 
   	 </div>  

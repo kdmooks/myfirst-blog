@@ -12,9 +12,29 @@
 	
 	    <ul>
   	    <button><li><a href ="{% url 'homePage' %}">BACK</a></li></button>
-  	    </ul>
-  	
+  	  </ul>
+  	  <h1>Register</h1>
+      {% if registered %}
+      <strong>Thank you for registering</strong>
+      <button><a href ="{% url 'homePage' %}">Return to the homepage</a></button> 
+      {% else %}
+      <strong>Register Here</strong><br />
+      <form id="user_form" method="post" action="/signUpPage/" enctype="multipart/form-data">
+         {% csrf_token %}
+         <!-- Display each form
+         The as_p method ensure each element appears in a new line-->
+         {{ user_form.as_p }}
+         {{ profile_form.as_p }}
+
+         <!--Submit the form-->
+         <button type="submit" >Register</button>
+        
+
+      </form>
+      {% endif %}
   	    
   	 </body> 
   	 </div>  
+      }
+      }
 </html>  

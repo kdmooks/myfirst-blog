@@ -12,9 +12,18 @@
 	
 	    <ul>
   	    <button><li><a href ="{% url 'patientsInfo' %}">SUBMIT</a></li></button>
-  	    </ul>
+  	  </ul>
+      <h1>LOGIN</h1>
+      <form id="login_form" method="post" action="/">
+          {% csrf_token %}
+          Username: <input type="text" name="username" size="50" />
+          Password: <input type="password" name="password" size="50" />
+          <br />
+          <input type="submit" value="submit">
+        
+     </form>
   	
   	    
-  	 </body> 
-  	 </div>  
+  </body> 
+  </div>  
 </html>  
