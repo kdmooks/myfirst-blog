@@ -3,6 +3,7 @@ from django.contrib.auth import  authenticate, login ,logout
 from django.contrib.auth.decorators import  login_required
 from .forms import UserForm, UserProfileForm
 from django.http import HttpResponseRedirect, HttpResponse
+from .models import Patient
 
 # Create your views here.
 def homePage(request):
@@ -49,7 +50,8 @@ def signUpPage(request):
 
     		#Invalid forms,print problems
     	else:
-    		print user_form.errors, profile_form.errors
+    		#print user_form.errors, profile_form.errors
+    		return HttpResponse(user_form.errors, profile_form.errors) 
 
     #Nota HTTP POST,so we render our form using two model ModelForm instances
     #this forms will be blank ready for user input
@@ -93,7 +95,8 @@ def loginPage(request):
 		return render(request,'facebookPostsAnalysis/loginPage.html', {})	
 
 def patient_Info(request):
-	return render(request,'facebookPostsAnalysis/patient_Info.html', {})	
+	patients=Patient.objects.all()
+	return render(request,'facebookPostsAnalysis/patient_Info.html', {'patients':patients})	
 
 def dataAnalysis(request):
 	return render(request,'facebookPostsAnalysis/dataAnalysis.html', {})
@@ -111,4 +114,3 @@ def user_logout(request):
 	logout(request)
 	#take the user to the homepage
 	return HttpResponseRedirect('/homePage/')
-	
