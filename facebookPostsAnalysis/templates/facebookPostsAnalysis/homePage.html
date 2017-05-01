@@ -15,9 +15,12 @@
   	    <button><li><a href ="{% url 'loginPage' %}">LOGIN</a></li></button>
   	    </ul>
   		{% if user.is_authenticated %}
-  		<h1> Hello {{ user.username}} !</h1>
+  	    <button style="float: right"><a href ="{% url 'patientsInfo' %}">PATIENTS INFO</a></button>
+  	    <button style="float: right"><a href ="{% url 'logout' %}">LOGOUT</a></button>
+  	    
+
   		{% else %}
-  		<h1>Hello Doctor</h1>
+  		<h5></h5>
   		{% endif %}
   	    
   	 </body> 

@@ -17,7 +17,7 @@ class UserProfile(models.Model):
 	#The additional attributes we wish to include
 	#the upload_to attribute value is cojoined with the project's MEDIA_ROOT setting 
 	#to provide a path with which uploaded profile images will be stored
-	#e.g facebookPostsAnlysis/media/profile_images/ 
+	#e.g facebookPostsAnlysis/media/profile_ 
 	picture=models.ImageField(upload_to='profile_images', blank=True)#it is not a must for users to supply values
 
     #Override the 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.contrib.auth import  authenticate, login
+from django.contrib.auth import  authenticate, login ,logout
+from django.contrib.auth.decorators import  login_required
 from .forms import UserForm, UserProfileForm
 from django.http import HttpResponseRedirect, HttpResponse
 
@@ -76,7 +77,7 @@ def loginPage(request):
 				#if the account is valid and active ,we can log the user in
 				#Wel send the user to the patientInfo page
 				login(request, user)
-				return HttpResponseRedirect('/') 
+				return HttpResponseRedirect('/homePage/') 
 			else:
 				#An active account was used -no logging in
 				return HttpResponse("You account has been disabled") 
@@ -99,3 +100,15 @@ def dataAnalysis(request):
 
 def patientsInfo(request):
 	return render(request,'facebookPostsAnalysis/patientsInfo.html', {})				
+
+@login_required
+def restricted(request):
+	return HttpResponse("You are logged in")
+#only those logged in can access the view
+@login_required
+def user_logout(request):
+	#since we know the user is logged in we can just log them out
+	logout(request)
+	#take the user to the homepage
+	return HttpResponseRedirect('/homePage/')
+	
