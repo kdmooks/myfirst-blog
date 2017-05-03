@@ -152,7 +152,7 @@ def get_data(request):
 	    json_fbposts = json_postdata['data']
 
 	    #create a text file 
-	    userPosts=open("facebookPostsAnalysis/gfgf.txt","w")
+	    userPosts=open("C:\Users\User\Documents\FinalYearProject\\finalYearProject\gfgf.txt","w")
 	    #get post messages
 	    messages="message"
 	    #goes through each dictionary nested in the data dictionary
@@ -165,14 +165,14 @@ def get_data(request):
         classlist=['anxiety','depression','moodMania','stable','substanceAbuse']
         current_situation=RunExperiment(classlist)
 
-        #context = {'current_situation': current_situation}
-        #context.update(
-        	#file_content=userPosts)
+        context = {'current_situation': current_situation}
+        context.update(
+        	file_content=userPosts)
 
-        return render(request,'facebookPostsAnalysis/get_data.html', {'current_situation': current_situation})             
+        return render(request,'facebookPostsAnalysis/get_data.html', context)             
                 
    
-yourpath = 'facebookPostsAnalysis/symptoms'
+yourpath = 'C:\Users\User\Documents\FinalYearProject\\finalYearProject\symptoms'
 training = {} # dictionary of training docs
 testing = {}
 classProbs = {}
@@ -181,7 +181,7 @@ conditionalprobs = {}
 #Code to read all files in current directory and all subdirectories
 # This function can be modified to read all files in a given directory and subdirectories
 # under the given directory
-def ReadAllFiles(yourpath="facebookPostsAnalysis/symptoms"):
+def ReadAllFiles(yourpath="C:\Users\User\Documents\FinalYearProject\\finalYearProject\symptoms"):
     dirs = os.listdir(yourpath)
 
     allfiles = {}
@@ -384,6 +384,6 @@ def RunExperiment(listofclasses):
     
 
 
-classlist=['anxiety','depression','moodMania','stable','substanceAbuse']
+
 
 

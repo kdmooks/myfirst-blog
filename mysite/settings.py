@@ -26,7 +26,7 @@ SECRET_KEY = 'dfpe@ss*r3%2t915ko82r2b!y$ayh9u3iu44#p*lv0(*u2q4#j'
 DEBUG = True
 #When DEBUG is True and ALLOWED_HOSTS is empty,the host is validated against['localhost','127.0.0.1','[::1]']
 #This wont match our hostname on PythonAnywhere once we deploy our application so we will change the settings
-ALLOWED_HOSTS = ['127.0.0.1','.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1','.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -123,5 +123,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
 MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
-MEDIA_URL='/media/'
+MEDIA_URL=' /media/'
 

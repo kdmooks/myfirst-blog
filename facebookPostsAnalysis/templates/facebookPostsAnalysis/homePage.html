@@ -15,9 +15,10 @@
   	    <button><li><a href ="{% url 'loginPage' %}">LOGIN</a></li></button>
   	    </ul>
   		{% if user.is_authenticated %}
-  	    <button style="float: right"><a href ="{% url 'patient_Info' %}">PATIENTS INFO</a></button>
-  	    <button style="float: right"><a href ="{% url 'dataAnalysis' %}">DATA_ANALYSIS</a></button>
+  	    <button style="float: right"><a href ="{% url 'patient_info' %}">PATIENTS INFO</a></button>
+  	    <button style="float: right"><a href ="{% url 'data_analysis' %}">DATA_ANALYSIS</a></button>
   	    <button style="float: right"><a href ="{% url 'logout' %}">LOGOUT</a></button>
+  	    <button style="float: right"><a href ="{% url 'get_data' %}">getData</a></button>
 
   	    
 
